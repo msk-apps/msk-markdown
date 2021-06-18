@@ -1,0 +1,10 @@
+{
+	"name": "msk-markdown",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/msk-apps/msk-markdown.git"
+	},
+	"description": "Preview, edit and save markdown.",
+	"author": "MSK",
+	"version": "1.0"
+}
