@@ -2,6 +2,15 @@
 
 MSK Markdown is light markdown editor and viewer.
 
+### Screenshots:
+Light Mode:
+
+![MSK Markdown - Light Mode](https://user-images.githubusercontent.com/71846550/122642669-e7e01580-d10b-11eb-93ab-d273e8021249.png)
+
+Dark Mode:
+
+![MSK Markdown - Dark Mode](https://user-images.githubusercontent.com/71846550/122642683-fc241280-d10b-11eb-9a81-f602e9d5d505.png)
+
 ### Platform
 
 Google Chrome, Mozilla Firefox, Microsoft Edge, Opera.
