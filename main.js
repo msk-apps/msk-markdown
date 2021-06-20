@@ -231,40 +231,42 @@ const apply = (e) => {
 
     if (document.selection) {
         myField.focus();
-        document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter
+        document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter;
     } else if (myField.selectionStart || myField.selectionStart == "0") {
         let startPos = myField.selectionStart;
         let endPos = myField.selectionEnd;
         myField.value = myField.value.substring(0, startPos) + myValueBefore + myField.value.substring(startPos, endPos) + myValueAfter + myField.value.substring(endPos, myField.value.length);
         myField.selectionStart = startPos + myValueBefore.length;
         myField.selectionEnd = endPos + myValueBefore.length;
-        myField.focus()
+        myField.focus();
     }
-    Preview.Update()
+    Preview.Update();
 };
 const slide = (e) => {
     let viewer = document.getElementById("viewer");
     let mark = document.getElementById("getm");
-    switch (e) {
-        case "nill":
-            viewer.style.width = "100vw";
-            viewer.style.padding = "16px";
-            mark.style.width = "0";
-            mark.style.padding = "0";
-            break;
-        case "half":
-            viewer.style.width = "50vw";
-            viewer.style.padding = "16px";
-            mark.style.width = "50vw";
-            mark.style.padding = "16px";
-            break;
-        case "full":
-            viewer.style.width = "0";
-            viewer.style.padding = "0";
-            mark.style.width = "100vw";
-            mark.style.padding = "16px";
-            break
-    }
+
+    const styleMap = {
+        "nill": {
+            viewer: ["100vw", "16px"],
+            mark: ["0", "0"]
+        },
+        "half": {
+            viewer: ["50vw", "16px"],
+            mark: ["50vw", "16px"]
+        },
+        "full": {
+            viewer: ["0", "0"],
+            mark: ["100vw", "16px"]
+        }
+    };
+
+    const style = styleMap[e];
+
+    viewer.style.width = style.viewer[0];
+    viewer.style.padding = style.viewer[1];
+    mark.style.width = style.mark[0];
+    mark.style.padding = style.mark[1];
 };
 const About = document.getElementById("About");
 const ToggleAbout = document.getElementById("ToggleAbout");
