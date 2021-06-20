@@ -35,7 +35,7 @@ const Preview = {
         this.textarea = document.getElementById("getm");
         this.wordcount = document.getElementById("wordcount");
         this.charcount = document.getElementById("charcount");
-        this.save = document.getElementById("save")
+        this.save = document.getElementById("save");
     },
     SwapBuffers() {
         let buffer = this.preview;
@@ -43,13 +43,13 @@ const Preview = {
         this.buffer = buffer;
         this.preview = preview;
         buffer.style.display = "none";
-        preview.style.display = "flex"
+        preview.style.display = "flex";
     },
     Update() {
         if (this.timeout) {
-            clearTimeout(this.timeout)
+            clearTimeout(this.timeout);
         }
-        this.timeout = setTimeout(this.callback, this.delay)
+        this.timeout = setTimeout(this.callback, this.delay);
     },
     CreatePreview() {
         Preview.timeout = null;
@@ -72,13 +72,13 @@ const Preview = {
             let charCount = viewer.innerText.replace(regex, "").length;
             this.wordcount.innerHTML = `${ wordCount } Words`;
             this.charcount.innerHTML = `${ charCount } Chars`;
-            this.save.disabled = false
+            this.save.disabled = false;
         } else {
             this.wordcount.innerHTML = "0 Words";
             this.charcount.innerHTML = "0 Chars";
-            this.save.disabled = true
+            this.save.disabled = true;
         }
-        mouseUp()
+        mouseUp();
     },
     PreviewDone() {
         this.mjRunning = false;
@@ -86,12 +86,12 @@ const Preview = {
         text = this.PartialDescape(text);
         this.buffer.innerHTML = marked(text);
         document.querySelectorAll("code").forEach((block) => {
-            hljs.highlightBlock(block)
+            hljs.highlightBlock(block);
         });
-        this.SwapBuffers()
+        this.SwapBuffers();
     },
     Escape(html, encode) {
-        return html.replace(!encode ? /&(?!#?\w+;)/g : /&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;")
+        return html.replace(!encode ? /&(?!#?\w+;)/g : /&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
     },
     PartialDescape(html) {
         let lines = html.split("\n");
@@ -99,15 +99,15 @@ const Preview = {
         let inside_code = false;
         for (let i = 0; i < lines.length; i += 1) {
             if (lines[i].startsWith("&gt;")) {
-                lines[i] = lines[i].replace(/&gt;/g, ">")
+                lines[i] = lines[i].replace(/&gt;/g, ">");
             }
             if (inside_code) {
-                lines[i] = lines[i].replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+                lines[i] = lines[i].replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
             }
             if (lines[i].startsWith("```")) {
-                inside_code = !inside_code
+                inside_code = !inside_code;
             }
-            out += `${lines[i]}\n`
+            out += `${lines[i]}\n`;
         }
         return out
     },
@@ -116,9 +116,9 @@ const Preview = {
     }) {
         if (keyCode < 16 || keyCode > 47) {
             this.preview.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
-            this.buffer.innerHTML = `<p>${marked(this.textarea.value)}</p>`
+            this.buffer.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
         }
-        this.Update()
+        this.Update();
     }
 };
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
@@ -131,19 +131,19 @@ const mouseUp = () => {
     let colno = document.getElementById("colno");
     let textLines = mark.value.substr(0, mark.selectionStart).split("\n");
     lineno.innerHTML = `Line ${textLines.length }`;
-    colno.innerHTML = `Col ${textLines[textLines.length-1].length }`
+    colno.innerHTML = `Col ${textLines[textLines.length-1].length }`;
 };
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-if (localStorage.getItem("marcdownTheme") == "dark") {
+if (localStorage.getItem("Theme") == "Dark") {
     document.documentElement.setAttribute("data-theme", "dark");
     document.querySelector("meta[name=theme-color]").setAttribute("content", "#282a36");
     toggleSwitch.checked = true;
-    localStorage.setItem("marcdownTheme", "dark")
+    localStorage.setItem("Theme", "Dark");
 } else {
     document.documentElement.setAttribute("data-theme", "light");
     document.querySelector("meta[name=theme-color]").setAttribute("content", "#DAE5ED");
     toggleSwitch.checked = false;
-    localStorage.setItem("marcdownTheme", "light")
+    localStorage.setItem("Theme", "Light");
 }
 const switchTheme = ({
     target
@@ -151,11 +151,11 @@ const switchTheme = ({
     if (target.checked) {
         document.documentElement.setAttribute("data-theme", "dark");
         document.querySelector("meta[name=theme-color]").setAttribute("content", "#282a36");
-        localStorage.setItem("marcdownTheme", "dark")
+        localStorage.setItem("Theme", "Dark");
     } else {
         document.documentElement.setAttribute("data-theme", "light");
         document.querySelector("meta[name=theme-color]").setAttribute("content", "#DAE5ED");
-        localStorage.setItem("marcdownTheme", "light")
+        localStorage.setItem("Theme", "Light");
     }
 };
 toggleSwitch.addEventListener("change", switchTheme, false);
@@ -167,9 +167,9 @@ const openFile = ({
     reader.onload = () => {
         document.getElementById("getm").value = reader.result;
         input.value = "";
-        Preview.Update()
+        Preview.Update();
     };
-    reader.readAsText(input.files[0])
+    reader.readAsText(input.files[0]);
 };
 const handleFileSelect = (evt) => {
     evt.stopPropagation();
@@ -180,14 +180,14 @@ const handleFileSelect = (evt) => {
         target
     }) => {
         document.getElementById("getm").value = target.result;
-        Preview.Update()
+        Preview.Update();
     };
-    reader.readAsText(files[0], "UTF-8")
+    reader.readAsText(files[0], "UTF-8");
 };
 const handleDragOver = (evt) => {
     evt.stopPropagation();
     evt.preventDefault();
-    evt.dataTransfer.dropEffect = "copy"
+    evt.dataTransfer.dropEffect = "copy";
 };
 let dropZone = document.getElementById("getm");
 dropZone.addEventListener("dragover", handleDragOver, false);
@@ -197,9 +197,9 @@ document.onkeyup = ({
     which
 }) => {
     if (altKey && which == 79) {
-        document.getElementById("file").click()
+        document.getElementById("file").click();
     } else if (altKey && which == 83) {
-        document.getElementById("save").click()
+        document.getElementById("save").click();
     }
 };
 const apply = (e) => {
@@ -276,7 +276,7 @@ const AboutOnClick = ({
     target
 }) => {
     if (target === About) {
-        OpenCloseAbout()
+        OpenCloseAbout();
     }
 };
 const SaveFile = document.getElementById("SaveFileModal");
@@ -287,7 +287,7 @@ const SaveFileOnClick = ({
     target
 }) => {
     if (target === SaveFile) {
-        OpenCloseSaveFile()
+        OpenCloseSaveFile();
     }
 };
 ToggleSaveFile.addEventListener("click", OpenCloseSaveFile);
@@ -300,7 +300,7 @@ const SettingsOnClick = ({
     target
 }) => {
     if (target === Settings) {
-        OpenCloseSettings()
+        OpenCloseSettings();
     }
 };
 ToggleAbout.addEventListener("click", OpenCloseAbout);
@@ -324,5 +324,5 @@ function DownloadFile() {
     anchor.click();
     document.body.removeChild(anchor);
     OpenCloseSaveFile();
-    document.getElementById("DownloadFileForm").reset
+    document.getElementById("DownloadFileForm").reset;
 }
