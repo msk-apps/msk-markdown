@@ -204,74 +204,31 @@ document.onkeyup = ({
 };
 const apply = (e) => {
     let myField = document.getElementById("getm");
-    let myValueBefore;
-    let myValueAfter;
-    switch (e) {
-        case "bold":
-            myValueBefore = "**";
-            myValueAfter = "**";
-            break;
-        case "italic":
-            myValueBefore = "*";
-            myValueAfter = "*";
-            break;
-        case "strike":
-            myValueBefore = "~";
-            myValueAfter = "~";
-            break;
-        case "h1":
-            myValueBefore = "# ";
-            myValueAfter = "";
-            break;
-        case "h2":
-            myValueBefore = "## ";
-            myValueAfter = "";
-            break;
-        case "h3":
-            myValueBefore = "### ";
-            myValueAfter = "";
-            break;
-        case "bq":
-            myValueBefore = "> ";
-            myValueAfter = "";
-            break;
-        case "ol":
-            myValueBefore = "1. ";
-            myValueAfter = "";
-            break;
-        case "ul":
-            myValueBefore = "- ";
-            myValueAfter = "";
-            break;
-        case "ic":
-            myValueBefore = "`";
-            myValueAfter = "`";
-            break;
-        case "bc":
-            myValueBefore = "```\n";
-            myValueAfter = "\n```";
-            break;
-        case "link":
-            myValueBefore = "[";
-            myValueAfter = "]()";
-            break;
-        case "check":
-            myValueBefore = "- [x] ";
-            myValueAfter = "";
-            break;
-        case "image":
-            myValueBefore = "![alt text](image.jpg)";
-            myValueAfter = "";
-            break;
-        case "hr":
-            myValueBefore = "---\n";
-            myValueAfter = "";
-            break;
-        case "table":
-            myValueBefore = "| Header | Title |\n| ----------- | ----------- |\n| Paragraph | Text |\n";
-            myValueAfter = "";
-            break
-    }
+
+    const valueMap = {
+        bold: ["**", "**"],
+        italic: ["*", "*"],
+        strike: ["~", "~"],
+        h1: ["# ", ""],
+        h2: ["## ", ""],
+        h3: ["### ", ""],
+        bq: ["> ", ""],
+        ol: ["1. ", ""],
+        ul: ["- ", ""],
+        ic: ["`", "`"],
+        bc: ["```\n", "\n```"],
+        link: ["[", "]()"],
+        check: ["- [x] ", ""],
+        image: ["![alt text](image.jpg)", ""],
+        hr: ["---\n", ""],
+        table: [
+            "| Header | Title |\n| ----------- | ----------- |\n| Paragraph | Text |\n",
+            "",
+        ],
+    };
+
+    const [myValueBefore, myValueAfter] = valueMap[e];
+
     if (document.selection) {
         myField.focus();
         document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter
