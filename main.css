@@ -342,4 +342,27 @@ img{
      color: #6c757d;
      opacity: 1;
 }
- 
+.dropdown {
+    position: fixed;
+    display: inline-block;
+  }
+  .drop-header{
+      color: black;
+  }
+  .drop-button{
+      color: white;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    padding: 12px 16px;
+    border:2px solid var(--afont-color);
+    border-radius: 5px;
+    z-index: 1;
+    background-color:var(--afont-color);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

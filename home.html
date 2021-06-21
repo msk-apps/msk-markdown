@@ -23,6 +23,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-tap-highlight" content="no" />
     <link rel="stylesheet" href="./main.css" />
+    <script src="https://kit.fontawesome.com/973049c11f.js" crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/styles/dracula.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
@@ -48,23 +49,36 @@
       <header>
         <div class="tools">
             <div>
-                <a>MSK Markdown</a>
-                <button onclick="apply('bold')" title="Bold">B</button>
-                <button onclick="apply('italic')" title="Italic"><i>I</i></button>
-                <button onclick="apply('strike')" title="Strikethrough"><strike>S</strike></button>
+                <a>MSK Markdown</a>&nbsp;&nbsp;
+                <div class="dropdown">
+                    <button class="drop-header">Header</button>
+                    <div class="dropdown-content">
+                        <button class="drop-button" onclick="apply('h1')" title="Header 1">H1</button><br>
+                        <button class="drop-button" onclick="apply('h2')" title="Header 2">H2</button><br>
+                        <button class="drop-button" onclick="apply('h3')" title="Header 3">H3</button><br>
+                        <button class="drop-button" onclick="apply('h4')" title="Header 4">H4</button><br>
+                        <button class="drop-button" onclick="apply('h5')" title="Header 5">H5</button><br>
+                        <button class="drop-button" onclick="apply('h6')" title="Header 6">H6</button>
+                    </div>
+                  </div>
+                  
+                <!--
+                <button onclick="apply('bold')" title="Bold"><i class="fas fa-bold"></i></button>
+                <button onclick="apply('italic')" title="Italic"><i class="fas fa-italic"></i></button>
+                <button onclick="apply('strike')" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
                 <button onclick="apply('h1')" title="Header 1">H1</button>
                 <button onclick="apply('h2')" title="Header 2">H2</button>
                 <button onclick="apply('h3')" title="Header 3">H3</button>
-                <button onclick="apply('ul')" title="Unordered list">●</button>
-                <button onclick="apply('ol')" title="Ordered list">1.</button>
-                <button onclick="apply('check')" title="Check list">✔</button>
-                <button onclick="apply('bq')" title="Blockquote">””</button>
-                <button onclick="apply('ic')" title="Inline code">I&lt;></button>
-                <button onclick="apply('bc')" title="Block code">&lt;>B</button>
-                <button onclick="apply('link')" title="Link">A</button>
-                <button onclick="apply('image')" title="Image">I</button>
-                <button onclick="apply('hr')" title="Horizontal rule">——</button>
-                <button onclick="apply('table')" title="Table">⚏</button>
+                <button onclick="apply('ul')" title="Unordered List"><i class="fas fa-list"></i></button>
+                <button onclick="apply('ol')" title="Ordered List"><i class="fas fa-list-ol"></i></button>
+                <button onclick="apply('check')" title="Check List"><i class="fas fa-tasks"></i></button>
+                <button onclick="apply('bq')" title="Block Quote"><i class="fas fa-quote-right"></i></button>
+                <button onclick="apply('ic')" title="Inline Code">I&lt;></button>
+                <button onclick="apply('bc')" title="Block Code">&lt;> B</button>
+                <button onclick="apply('link')" title="Link"><i class="fas fa-link"></i></button>
+                <button onclick="apply('image')" title="Image"><i class="fas fa-image"></i></button>
+                <button onclick="apply('hr')" title="Horizontal Rule">——</button>
+                <button onclick="apply('table')" title="Table"><i class="fas fa-table"></i></button>
             </div>
             <div>
                 <span>
@@ -72,11 +86,11 @@
                 </span>
                 <span class="trigger" id="ToggleSaveFile">Save</span>
             </div>
-        </div>
+        </div>-->
     </header>   
     <section class="content">
       <div id="editor">
-          <textarea class="syncscroll" name="sync" id="getm" placeholder="Start typing Markdown." onkeyup="Preview.Update()" onmouseup="mouseUp()" autofocus></textarea>
+          <textarea class="syncscroll" name="sync" id="getm" placeholder="Start typing markdown" onkeyup="Preview.Update()" onmouseup="mouseUp()" autofocus></textarea>
       </div>
       <div class="markdown syncscroll" name="sync" id="viewer" style="display: none;"></div>
       <div class="markdown syncscroll" name="sync" id="buffer"></div>
