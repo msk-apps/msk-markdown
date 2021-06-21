@@ -72,11 +72,9 @@ const Preview = {
             let charCount = viewer.innerText.replace(regex, "").length;
             this.wordcount.innerHTML = `${ wordCount } Words`;
             this.charcount.innerHTML = `${ charCount } Chars`;
-            this.save.disabled = false;
         } else {
             this.wordcount.innerHTML = "0 Words";
             this.charcount.innerHTML = "0 Chars";
-            this.save.disabled = true;
         }
         mouseUp();
     },
