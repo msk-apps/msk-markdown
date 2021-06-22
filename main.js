@@ -22,6 +22,15 @@ marked.setOptions({
     smartLists: true,
     smartypants: true
 });
+
+/**
+ * @summary basic pluralization support
+ * @param {number} amount
+ * @param {string} word
+ * @returns {string}
+ */
+const pluralize = (amount, word) => `${amount} ${word}${amount !== 1 ? "s" : ""}`;
+
 const Preview = {
     delay: 0,
     preview: null,
@@ -54,11 +63,11 @@ const Preview = {
     CreatePreview() {
         Preview.timeout = null;
         if (this.mjRunning) {
-            return
+            return;
         }
         let text = this.textarea.value;
         if (text === this.oldtext) {
-            return
+            return;
         }
         text = this.Escape(text);
         this.buffer.innerHTML = this.oldtext = text;
@@ -67,15 +76,16 @@ const Preview = {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.buffer], ["PreviewDone", this], ["resetEquationNumbers", MathJax.InputJax.TeX]);
         let viewer = document.getElementById("viewer").style.display == "none" ? document.getElementById("buffer") : document.getElementById("viewer");
         let regex = /\s+/gi;
-        if (text !== "") {
-            let wordCount = viewer.innerText.trim().replace(regex, " ").split(" ").length;
-            let charCount = viewer.innerText.replace(regex, "").length;
-            this.wordcount.innerHTML = `${ wordCount } Words`;
-            this.charcount.innerHTML = `${ charCount } Chars`;
-        } else {
-            this.wordcount.innerHTML = "0 Words";
-            this.charcount.innerHTML = "0 Chars";
-        }
+
+        const { innerText } = viewer;
+
+        const hasText = text !== "";
+        let wordCount = hasText ? innerText.trim().replace(regex, " ").split(" ").length : 0;
+        let charCount = hasText ? innerText.replace(regex, "").length : 0;
+
+        this.wordcount.innerHTML = pluralize(wordCount, "Word");
+        this.charcount.innerHTML = pluralize(charCount, "Char");
+
         mouseUp();
     },
     PreviewDone() {
@@ -107,7 +117,7 @@ const Preview = {
             }
             out += `${lines[i]}\n`;
         }
-        return out
+        return out;
     },
     UpdateKeyPress({
         keyCode
@@ -128,8 +138,8 @@ const mouseUp = () => {
     let lineno = document.getElementById("lineno");
     let colno = document.getElementById("colno");
     let textLines = mark.value.substr(0, mark.selectionStart).split("\n");
-    lineno.innerHTML = `Line ${textLines.length }`;
-    colno.innerHTML = `Col ${textLines[textLines.length-1].length }`;
+    lineno.innerHTML = `Line ${textLines.length}`;
+    colno.innerHTML = `Col ${textLines[textLines.length - 1].length}`;
 };
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 if (localStorage.getItem("Theme") == "Dark") {
