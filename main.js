@@ -83,7 +83,7 @@ const Preview = {
         this.wordcount.innerHTML = pluralize(wordCount, "Word");
         this.charcount.innerHTML = pluralize(charCount, "Char");
 
-        mouseUp();
+        updateLineNoColNo();
     },
     PreviewDone() {
         this.mjRunning = false;
