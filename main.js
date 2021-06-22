@@ -83,7 +83,7 @@ const Preview = {
         this.wordcount.innerHTML = pluralize(wordCount, "Word");
         this.charcount.innerHTML = pluralize(charCount, "Char");
 
-        mouseUp();
+        updateLineNoColNo();
     },
     PreviewDone() {
         this.mjRunning = false;
@@ -130,14 +130,22 @@ Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
 Preview.callback.autoReset = true;
 Preview.Init();
 Preview.Update();
-const mouseUp = () => {
-    let mark = document.getElementById("getm");
-    let lineno = document.getElementById("lineno");
-    let colno = document.getElementById("colno");
-    let textLines = mark.value.substr(0, mark.selectionStart).split("\n");
+
+const mark = document.getElementById("getm");
+const updateLineNoColNo = () => {
+    const lineno = document.getElementById("lineno");
+    const colno = document.getElementById("colno");
+    const textLines = mark.value.substr(0, mark.selectionStart).split("\n");
     lineno.innerHTML = `Line ${textLines.length}`;
     colno.innerHTML = `Col ${textLines[textLines.length - 1].length}`;
 };
+mark.addEventListener("mouseup", updateLineNoColNo);
+mark.addEventListener("keyup", ({ key }) => {
+    const isArrow = ["ArrowLeft", "ArrowRight"].some((k) => k === key);
+    if (!isArrow) return;
+    updateLineNoColNo();
+});
+
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 if (localStorage.getItem("Theme") == "Dark") {
     document.documentElement.setAttribute("data-theme", "dark");
