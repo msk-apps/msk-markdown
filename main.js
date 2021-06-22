@@ -74,14 +74,11 @@ const Preview = {
         this.mjRunning = true;
         MathJax.Hub.Configured();
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.buffer], ["PreviewDone", this], ["resetEquationNumbers", MathJax.InputJax.TeX]);
-        const viewer = document.getElementById("viewer").style.display == "none" ? document.getElementById("buffer") : document.getElementById("viewer");
         const regex = /\s+/gi;
 
-        const { innerText } = viewer;
-
         const hasText = text !== "";
-        const wordCount = hasText ? innerText.trim().replace(regex, " ").split(" ").length : 0;
-        const charCount = hasText ? innerText.replace(regex, "").length : 0;
+        const wordCount = hasText ? text.trim().replace(regex, " ").split(" ").length : 0;
+        const charCount = hasText ? text.replace(regex, "").length : 0;
 
         this.wordcount.innerHTML = pluralize(wordCount, "Word");
         this.charcount.innerHTML = pluralize(charCount, "Char");
