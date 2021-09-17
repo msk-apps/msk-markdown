@@ -124,6 +124,10 @@ const Preview = {
             this.buffer.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
         }
         this.Update();
+    },
+    ClearPreview() {
+        this.preview.innerHTML = '';
+        this.buffer.innerHTML = '';
     }
 };
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
@@ -339,3 +343,9 @@ function DownloadFile() {
     OpenCloseSaveFile();
     document.getElementById("DownloadFileForm").reset;
 }
+
+/*Clears the TextArea along with the associated markdown*/
+const clearTextArea = () => {
+    document.getElementById("getm").value = '';
+    Preview.ClearPreview();
+};
