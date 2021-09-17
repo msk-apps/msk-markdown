@@ -128,8 +128,9 @@ const Preview = {
     ClearPreview() {
         this.preview.innerHTML = '';
         this.buffer.innerHTML = '';
-        this.wordcount.innerHTML = '';
-        this.charcount.innerHTML = '';
+        this.wordcount.innerHTML = pluralize(0, "Word");
+        this.charcount.innerHTML = pluralize(0, "Char");
+        updateLineNoColNo();
     }
 };
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
