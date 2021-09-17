@@ -128,6 +128,8 @@ const Preview = {
     ClearPreview() {
         this.preview.innerHTML = '';
         this.buffer.innerHTML = '';
+        this.wordcount.innerHTML = '';
+        this.charcount.innerHTML = '';
     }
 };
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
