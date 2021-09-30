@@ -90,6 +90,9 @@ footer,header{
     justify-content:space-between;
     flex-grow:1
 }
+.tools button:hover{
+    background-color: #2b0511;
+}
 .tools span{
     padding:0 8px
 }
