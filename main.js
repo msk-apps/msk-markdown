@@ -251,14 +251,29 @@ const apply = (e) => {
 
     if (document.selection) {
         myField.focus();
-        document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter;
+        var selectionText = document.selection.createRange().text;
+        if (myValueBefore && myValueAfter && selectionText.startsWith(myValueBefore) && selectionText.endsWith(myValueAfter)) {
+            selectionText = selectionText.slice(myValueBefore.length, -myValueAfter.length);
+        } else {
+            // Apply Style
+            selectionText = myValueBefore + selectionText + myValueAfter;
+        }
     } else if (myField.selectionStart || myField.selectionStart == "0") {
         let startPos = myField.selectionStart;
         let endPos = myField.selectionEnd;
-        myField.value = myField.value.substring(0, startPos) + myValueBefore + myField.value.substring(startPos, endPos) + myValueAfter + myField.value.substring(endPos, myField.value.length);
-        myField.selectionStart = startPos + myValueBefore.length;
-        myField.selectionEnd = endPos + myValueBefore.length;
-        myField.focus();
+        var selectionText = myField.value.substring(startPos, endPos);
+        if (myValueBefore && myValueAfter && selectionText.startsWith(myValueBefore) && selectionText.endsWith(myValueAfter)) {
+            myField.value = myField.value.substring(0, startPos) + selectionText.slice(myValueBefore.length, -myValueAfter.length) + myField.value.substring(endPos, myField.value.length);
+            myField.selectionStart = startPos;
+            myField.selectionEnd = endPos - myValueBefore.length - myValueAfter.length;
+            myField.focus();
+        } else {
+            // Apply Style
+            myField.value = myField.value.substring(0, startPos) + myValueBefore + myField.value.substring(startPos, endPos) + myValueAfter + myField.value.substring(endPos, myField.value.length);
+            myField.selectionStart = startPos;
+            myField.selectionEnd = endPos + myValueBefore.length + myValueAfter.length;
+            myField.focus();
+        }
     }
     Preview.Update();
 };
@@ -351,4 +366,4 @@ function DownloadFile() {
 const clearTextArea = () => {
     document.getElementById("getm").value = '';
     Preview.ClearPreview();
-};
+}; 
