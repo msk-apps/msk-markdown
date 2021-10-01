@@ -361,3 +361,9 @@ function DownloadFile() {
     OpenCloseSaveFile();
     document.getElementById("DownloadFileForm").reset;
 }
+
+/*Clears the TextArea along with the associated markdown*/
+const clearTextArea = () => {
+    document.getElementById("getm").value = '';
+    Preview.ClearPreview();
+}; 
