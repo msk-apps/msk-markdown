@@ -124,6 +124,13 @@ const Preview = {
             this.buffer.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
         }
         this.Update();
+    },
+    ClearPreview() {
+        this.preview.innerHTML = '';
+        this.buffer.innerHTML = '';
+        this.wordcount.innerHTML = pluralize(0, "Word");
+        this.charcount.innerHTML = pluralize(0, "Char");
+        updateLineNoColNo();
     }
 };
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
