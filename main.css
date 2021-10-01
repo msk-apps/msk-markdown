@@ -93,7 +93,7 @@ footer,header{
 .tools span{
     padding:0 8px
 }
-.file,button,.clear{
+.file,button,.clear,.sample{
     padding:8px 16px;
     background-color:transparent;
     color:var(--afont-color);
