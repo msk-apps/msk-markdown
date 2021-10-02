@@ -20,11 +20,12 @@
     border:0
 }
 ::-webkit-scrollbar{
-    width:4px;
+    width:10px;
     height:4px
 }
 ::-webkit-scrollbar-thumb{
-    background:var(--dbg-color)
+    background:var(--dbg-color);
+    border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover{
     background:var(--dbgh-color)
