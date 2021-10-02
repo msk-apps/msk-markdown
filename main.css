@@ -250,7 +250,8 @@ textarea{
     counter-reset:line;
     font-family:"Segoe UI", "Arial", "Roboto", "Noto", sans-serif;
     transition:width 0.2s, padding 0.4s;
-    flex-grow:1
+    flex-grow:1;
+    -webkit-overflow-scrolling: touch;
 }
 .hljs{
     display:inline-flex !important
