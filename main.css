@@ -242,6 +242,9 @@ textarea{
 #editor{
     border-right:2px dashed var(--afont-color)
 }
+#editor,#viewer{
+    -webkit-overflow-scrolling: touch;
+}
 .markdown{
     display:flex;
     flex-direction:column;
@@ -251,7 +254,6 @@ textarea{
     font-family:"Segoe UI", "Arial", "Roboto", "Noto", sans-serif;
     transition:width 0.2s, padding 0.4s;
     flex-grow:1;
-    -webkit-overflow-scrolling: touch;
 }
 .hljs{
     display:inline-flex !important
