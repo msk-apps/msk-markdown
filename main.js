@@ -328,6 +328,15 @@ CloseAbout.addEventListener("click", OpenCloseAbout);
 ToggleSettings.addEventListener("click", OpenCloseSettings);
 CloseSettings.addEventListener("click", OpenCloseSettings);
 
+window.onclick = ({target}) => {
+    if (target == Settings) {
+        OpenCloseSettings();
+    }
+    if (target == About) {
+        OpenCloseAbout();
+    }
+};
+
 function DownloadFile() {
     let DownloadName = document.getElementById("SaveFileInput").value;
     let text = document.getElementById("getm").value;
