@@ -5,7 +5,6 @@
     --dbg-color:rgba(0, 0, 0, 0.1);
     --dbgh-color:rgba(0, 0, 0, 0.2);
     --dbga-color:rgba(0, 0, 0, 0.3);
-    --tools-bg-color:#e7d5db;
 }
 [data-theme="dark"]{
     --font-color:#f8f8f2;
@@ -14,7 +13,6 @@
     --dbg-color:rgba(255, 255, 255, 0.1);
     --dbgh-color:rgba(255, 255, 255, 0.2);
     --dbga-color:rgba(255, 255, 255, 0.3);
-    --tools-bg-color:#2e3e3f;
 }
 *{
     box-sizing:border-box;
@@ -92,12 +90,10 @@ footer,header{
     justify-content:space-between;
     flex-grow:1
 }
-.tools button{
-    border-radius: 4px;
-    transition: 0.4s
-}
 .tools button:hover{
-    background-color:var(--tools-bg-color);
+    background-color: var(--afont-color);
+    border-radius: 50px;
+    color: var(--bg-color);
 }
 .tools span{
     padding:0 8px
