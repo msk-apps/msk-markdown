@@ -1,179 +1,177 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no" />
+        <title>MSK Markdown - Create, preview and edit markdown</title>
+        <link rel="icon" href="./assets/icons/favicon.png" />
+        <link rel="manifest" href="./manifest.json" />
+        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="MSK Markdown" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="MSK Markdown" />
+        <link rel="apple-touch-icon" href="./assets/icons/favicon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="./assets/icons/favicon.png" />
+        <link rel="apple-touch-icon" sizes="96x96" href="./assets/icons/favicon.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="./assets/icons/favicon.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/favicon.png" />
+        <meta name="msapplication-TileImage" content="./assets/icons/favicon.png" />
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link rel="stylesheet" href="./main.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/styles/dracula.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/asvd/syncscroll/syncscroll.min.js"></script>
+        <meta name="title" content="MSK Markdown - Create, preview and edit markdown" />
+        <meta name="description" content="MSK Markdown is a powerful & fast markdown editor. Visit msk-markdown.netlify.app, Open source at GitHub." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://msk-markdown.netlify.app/" />
+        <meta property="og:title" content="MSK Markdown - Create, preview and edit markdown" />
+        <meta property="og:description" content="MSK Markdown is a powerful & fast markdown editor. Visit msk-markdown.netlify.app, Open source at GitHub." />
+        <meta property="og:image" content="./assets/photos/banner.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://msk-markdown.netlify.app/" />
+        <meta property="twitter:title" content="MSK Markdown - Create, preview and edit markdown" />
+        <meta property="twitter:description" content="MSK Markdown is a powerful & fast markdown editor. Visit msk-markdown.netlify.app, Open source at GitHub." />
+        <meta property="twitter:image" content="./assets/photos/banner.png" />
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no" />
-    <title>MSK Markdown - Preview, edit and save markdown.</title>
-    <link rel="icon" href="https://img.icons8.com/color/100/000000/document--v1.png" />
-    <link rel="manifest" href="./manifest.json" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="MSK Markdown" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="MSK Markdown" />
-    <link rel="apple-touch-icon" href="https://img.icons8.com/color/48/000000/document--v1.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="https://img.icons8.com/color/72/000000/document--v1.png" />
-    <link rel="apple-touch-icon" sizes="96x96" href="https://img.icons8.com/color/96/000000/document--v1.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="https://img.icons8.com/color/144/000000/document--v1.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="https://img.icons8.com/color/192/000000/document--v1.png" />
-    <meta name="msapplication-TileImage" content="https://img.icons8.com/color/144/000000/document--v1.png" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/styles/dracula.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/asvd/syncscroll/syncscroll.min.js"></script>
-    <meta name="title" content="MSK Markdown - Preview, edit and save markdown.">
-    <meta name="description" content="MSK Markdown - Preview, edit and save markdown. Lightweight Markdown Editor.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://metatags.io/">
-    <meta property="og:title" content="MSK Markdown - Preview, edit and save markdown.">
-    <meta property="og:description" content="MSK Markdown - Preview, edit and save markdown. Lightweight Markdown Editor.">
-    <meta property="og:image" content="https://i.postimg.cc/151tLth0/MSK-Markown.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://metatags.io/">
-    <meta property="twitter:title" content="MSK Markdown - Preview, edit and save markdown.">
-    <meta property="twitter:description" content="MSK Markdown - Preview, edit and save markdown. Lightweight Markdown Editor.">
-    <meta property="twitter:image" content="https://i.postimg.cc/151tLth0/MSK-Markown.png">
-</head>
-
-<body>
-    <main role="main" class="container">
-      <header>
-        <div class="tools">
-            <div>
-                <a>MSK Markdown</a>
-                <button onclick="apply('bold')" title="Bold">B</button>
-                <button onclick="apply('italic')" title="Italic"><i>I</i></button>
-                <button onclick="apply('strike')" title="Strikethrough"><strike>S</strike></button>
-                <button onclick="apply('h1')" title="Header 1">H1</button>
-                <button onclick="apply('h2')" title="Header 2">H2</button>
-                <button onclick="apply('h3')" title="Header 3">H3</button>
-                <button onclick="apply('ul')" title="Unordered list">●</button>
-                <button onclick="apply('ol')" title="Ordered list">1.</button>
-                <button onclick="apply('check')" title="Check list">✔</button>
-                <button onclick="apply('bq')" title="Blockquote">””</button>
-                <button onclick="apply('ic')" title="Inline code">I&lt;></button>
-                <button onclick="apply('bc')" title="Block code">&lt;>B</button>
-                <button onclick="apply('link')" title="Link">A</button>
-                <button onclick="apply('image')" title="Image">I</button>
-                <button onclick="apply('hr')" title="Horizontal rule">——</button>
-                <button onclick="apply('table')" title="Table">⚏</button>
+    <body>
+        <main role="main" class="container">
+            <header>
+                <div class="tools">
+                    <div>
+                        <a>MSK Markdown</a>
+                        <button onclick="apply('bold')" title="Bold">B</button>
+                        <button onclick="apply('italic')" title="Italic"><i>I</i></button>
+                        <button onclick="apply('strike')" title="Strikethrough"><strike>S</strike></button>
+                        <button onclick="apply('h1')" title="Header 1">H1</button>
+                        <button onclick="apply('h2')" title="Header 2">H2</button>
+                        <button onclick="apply('h3')" title="Header 3">H3</button>
+                        <button onclick="apply('ul')" title="Unordered list">●</button>
+                        <button onclick="apply('ol')" title="Ordered list">1.</button>
+                        <button onclick="apply('check')" title="Check list">✔</button>
+                        <button onclick="apply('bq')" title="Blockquote">””</button>
+                        <button onclick="apply('ic')" title="Inline code">I&lt;></button>
+                        <button onclick="apply('bc')" title="Block code">&lt;>B</button>
+                        <button onclick="apply('link')" title="Link">A</button>
+                        <button onclick="apply('image')" title="Image">I</button>
+                        <button onclick="apply('hr')" title="Horizontal rule">——</button>
+                        <button onclick="apply('table')" title="Table">⚏</button>
+                    </div>
+                    <div>
+                        <span class="clear" id="ClearText" onclick="clearTextArea()">Clear</span>
+                        <span>
+                            <label class="file" for="file">Open<input id="file" type="file" accept=".txt,.text,.md,.markdown,.markdn,.mdown,.htm,.html,.svg" onchange="openFile(event)" /></label>
+                        </span>
+                        <span class="trigger" id="ToggleSaveFile">Save</span>
+                    </div>
+                </div>
+            </header>
+            <section class="content">
+                <div id="editor">
+                    <textarea class="syncscroll" name="sync" id="getm" placeholder="Start typing Markdown." onkeyup="Preview.Update()" autofocus></textarea>
+                </div>
+                <div class="markdown syncscroll" name="sync" id="viewer" style="display: none;"></div>
+                <div class="markdown syncscroll" name="sync" id="buffer"></div>
+            </section>
+            <footer>
+                <div class="tools">
+                    <div style="flex: 1 1 0;">
+                        <span id="lineno"></span>
+                        <span id="colno"></span>
+                    </div>
+                    <div class="preview">
+                        <button onclick="slide('nill')" title="Hide editor">←</button>
+                        <button onclick="slide('half')" title="Side by side">●</button>
+                        <button onclick="slide('full')" title="Hide viewer">→</button>
+                    </div>
+                    <div style="flex: 1 1 0; text-align: right;">
+                        <span id="charcount"></span>
+                        <span id="wordcount"></span>
+                        <span class="trigger" id="ToggleSettings">Settings</span>
+                        <span class="trigger" id="ToggleAbout">About</span>
+                    </div>
+                </div>
+            </footer>
+            <div class="modal" id="SaveFileModal">
+                <div class="modal-content" id="SaveFileContent">
+                    <span class="close-button" id="CloseSaveFile">✖</span>
+                    <h2>Save File</h2>
+                    <form id="DownloadFileForm">
+                        <center>
+                            <a></a>
+                            <input type="text" placeholder="File name" class="Input" id="SaveFileInput" /><br />
+                            <button type="button" onclick="DownloadFile()">Download</button>
+                        </center>
+                    </form>
+                </div>
             </div>
-            <div>
-                <span class="clear" id="ClearText" onclick="clearTextArea()">Clear</span>
-                <span>
-                    <label class="file" for="file">Open<input id="file" type="file" accept=".txt,.text,.md,.markdown,.markdn,.mdown,.htm,.html,.svg" onchange="openFile(event)" /></label>
-                </span>
-                <span class="trigger" id="ToggleSaveFile">Save</span>
+            <div class="modal" id="About">
+                <div class="modal-content" id="AboutContent">
+                    <span class="close-button" id="CloseAbout">✖</span>
+                    <h1>MSK Markdown</h1>
+                    <h3>
+                        Preview, edit and save markdown. Light Editor and Viewer.<br />
+                        Created by <a href="https://msk-apps.netlify.app/">MSK</a>.
+                    </h3>
+                </div>
             </div>
-        </div>
-    </header>
-    <section class="content">
-      <div id="editor">
-          <textarea class="syncscroll" name="sync" id="getm" placeholder="Start typing Markdown." onkeyup="Preview.Update()" autofocus></textarea>
-      </div>
-      <div class="markdown syncscroll" name="sync" id="viewer" style="display: none;"></div>
-      <div class="markdown syncscroll" name="sync" id="buffer"></div>
-  </section>
-  <footer>
-    <div class="tools">
-        <div style="flex: 1 1 0;">
-            <span id="lineno"></span>
-            <span id="colno"></span>
-        </div>
-        <div class="preview">
-            <button onclick="slide('nill')" title="Hide editor">←</button>
-            <button onclick="slide('half')" title="Side by side">●</button>
-            <button onclick="slide('full')" title="Hide viewer">→</button>
-        </div>
-        <div style="flex: 1 1 0; text-align: right;">
-            <span id="charcount"></span>
-            <span id="wordcount"></span>
-            <span class="trigger" id="ToggleSettings">Settings</span>
-            <span class="trigger" id="ToggleAbout">About</span>
-        </div>
-    </div>
-</footer>
-<div class="modal" id="SaveFileModal">
-  <div class="modal-content" id="SaveFileContent">
-      <span class="close-button" id="CloseSaveFile">✖</span>
-      <h2>Save File</h2>
-      <form id="DownloadFileForm">
-          <center>
-              <a></a>
-              <input type="text" placeholder="File name" class="Input" id="SaveFileInput"/><br/>
-              <button type="button" onclick="DownloadFile()">Download</button>
-          </center>
-      </form>
-  </div>
-</div>
-<div class="modal" id="About">
-  <div class="modal-content" id="AboutContent">
-      <span class="close-button" id="CloseAbout">✖</span>
-      <h1>MSK Markdown</h1>
-      <h3>
-          Preview, edit and save markdown. Light Editor and Viewer.<br/>
-          Created by <a href="https://msk-apps.netlify.app/">MSK</a>.
-      </h3>
-  </div>
-</div>
-<div class="modal" id="Settings">
-  <div class="modal-content" id="SettingsContent">
-      <span class="close-button" id="CloseSettings">✖</span>
-      <h2>Settings</h2>
-      <h3>Theme (Dark & Light)</h3>
-      <label class="theme-switch" for="checkbox" title="Theme">
-          <input type="checkbox" id="checkbox"/>
-          <div class="slider round"></div>
-      </label>
-      <h3>Music</h3>
-      <label class="music-switch" for="Music" title="Music">
-          <input onclick="togglePlay();" type="checkbox" id="Music"/>
-          <div class="slider round"></div>
-      </label>
-  </div>
-</div>
-</main>
-<script src="./main.js"></script>
-<audio id="myAudio">
-  <source src="./assets/audio.mpeg" type="audio/mpeg" />
-</audio>
-<script>
-  myAudio.addEventListener(
-    "ended",
-    function () {
-        this.currentTime = 0;
-        this.play();
-    },
-    false
-);
-function togglePlay() {
-    if (myAudio.paused) {
-        myAudio.play();
-        const value = "MusicTrue";
-        localStorage.setItem("name", value);
-    } else {
-        myAudio.pause();
-        const value = "MusicFalse";
-        localStorage.setItem("name", value);
-    }
-}
-window.addEventListener("load", function () {
-    const AudioValue = localStorage.getItem("name");
-    if (AudioValue === "MusicTrue") {
-        myAudio.play();
-    } else {
-        myAudio.pause();
-    }
-});
-</script>
-
-</body>
+            <div class="modal" id="Settings">
+                <div class="modal-content" id="SettingsContent">
+                    <span class="close-button" id="CloseSettings">✖</span>
+                    <h2>Settings</h2>
+                    <h3>Theme (Dark & Light)</h3>
+                    <label class="theme-switch" for="checkbox" title="Theme">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                    <h3>Music</h3>
+                    <label class="music-switch" for="Music" title="Music">
+                        <input onclick="togglePlay();" type="checkbox" id="Music" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </main>
+        <script src="./main.js"></script>
+        <audio id="myAudio">
+            <source src="./assets/audio.mpeg" type="audio/mpeg" />
+        </audio>
+        <script>
+            myAudio.addEventListener(
+                "ended",
+                function () {
+                    this.currentTime = 0;
+                    this.play();
+                },
+                false
+            );
+            function togglePlay() {
+                if (myAudio.paused) {
+                    myAudio.play();
+                    const value = "MusicTrue";
+                    localStorage.setItem("name", value);
+                } else {
+                    myAudio.pause();
+                    const value = "MusicFalse";
+                    localStorage.setItem("name", value);
+                }
+            }
+            window.addEventListener("load", function () {
+                const AudioValue = localStorage.getItem("name");
+                if (AudioValue === "MusicTrue") {
+                    myAudio.play();
+                } else {
+                    myAudio.pause();
+                }
+            });
+        </script>
+    </body>
 </html>
