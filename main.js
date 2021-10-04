@@ -89,7 +89,7 @@ const Preview = {
         this.mjRunning = false;
         text = this.buffer.innerHTML;
         text = this.PartialDescape(text);
-        this.buffer.innerHTML = marked(text);
+        this.buffer.innerHTML = DOMPurify.sanitize(marked(text));   // Sanitize output HTML
         document.querySelectorAll("code").forEach((block) => {
             hljs.highlightBlock(block);
         });
