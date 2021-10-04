@@ -335,6 +335,9 @@ window.onclick = ({target}) => {
     if (target == About) {
         OpenCloseAbout();
     }
+    if (target === SaveFile) {
+        OpenCloseSaveFile();
+    }
 };
 
 function DownloadFile() {
