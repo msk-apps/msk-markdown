@@ -8,6 +8,6 @@ assignees: ''
 ---
 
 **What is the improvement?**
-A clear & concise description of the documentation improvement.
+A clear and concise description of the documentation improvement.
 **Additional context**
 More or additional context.
