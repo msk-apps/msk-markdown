@@ -1,6 +1,6 @@
 ---
 name: Documentation improvements
-about: Suggest an improvements for the Documentation.
+about: Suggest an improvements for the documentation.
 title: ''
 labels: documentation
 assignees: ''
@@ -8,6 +8,6 @@ assignees: ''
 ---
 
 **What is the improvement?**
-A clear & concise description of the documentation improvement.
+A clear and concise description of the documentation improvement.
 **Additional context**
 More or additional context.

@@ -23,18 +23,17 @@ MSK Markdown developed in HTML5, CSS3, Native JavaScript.
 
 ### CSS & Fonts Libraries used:
 1. HighLight JS Dracula Dark Theme.
-2. Google Fonts (Roberto Mono 400, 700).
+2. Google Fonts (Roboto Mono 400, 700).
 
 ### JS Libraries Used:
 1. MathJax JS 2.7.5.
 2. Marked JS.
-3. Highlight JS.
-4. Sync Scroll JS.
+3. DOMPurify JS 2.3.3.
+4. Highlight JS.
+5. Sync Scroll JS.
 
 ### License 
 MSK Markdown licensed under MIT License 2021.
 
 ### Contributions
-
 Developed & Created by [Kevin M. Mansour](https://github.com/kevinmmansour).
-
