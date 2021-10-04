@@ -103,13 +103,18 @@ header {
     justify-content: space-between;
     flex-grow: 1;
 }
+
+.tools button:hover {
+    background-color: var(--afont-color);
+    border-radius: 5px;
+    color: var(--bg-color);
+}
+
 .tools span {
     padding: 0 8px;
 }
 
-.file,
-button,
-.clear, .sample {
+.file,button,.clear,.sample {
     padding: 8px 16px;
     background-color: transparent;
     color: var(--afont-color);
