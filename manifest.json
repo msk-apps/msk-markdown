@@ -1,35 +1,36 @@
 {
 	"name": "MSK Markdown",
-	"short_name": "MSK Markdown",
-	"description": "Preview, edit and save markdown.",
+	"short_name": "Markdown",
+	"author": "Kevin M. Mansour",
+	"description": "Create, preview and edit markdown",
 	"icons": [
 		{
-			"src": "https://img.icons8.com/color/48/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "48x48",
 			"type": "image/png"
 		},
 		{
-			"src": "https://img.icons8.com/color/72/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "72x72",
 			"type": "image/png"
 		},
 		{
-			"src": "https://img.icons8.com/color/96/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "96x96",
 			"type": "image/png"
 		},
 		{
-			"src": "https://img.icons8.com/color/144/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "144x144",
 			"type": "image/png"
 		},
 		{
-			"src": "https://img.icons8.com/color/192/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		},
 		{
-			"src": "https://img.icons8.com/color/512/000000/document--v1.png",
+			"src": "./assets/icons/favicon.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}
@@ -38,5 +39,9 @@
 	"display": "standalone",
 	"orientation": "any",
 	"theme_color": "#FFFFFF",
-	"background_color": "#FFFFFF"
+	"background_color": "#FFFFFF",
+	"homepage_url": "https://github.com/msk-apps/msk-markdown",
+	"manifest_version": 2,
+	"version": "2.0",
+	"version_name": "2.0 stable"
 }
