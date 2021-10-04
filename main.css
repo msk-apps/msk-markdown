@@ -23,12 +23,13 @@
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width:10px;
     height: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--dbg-color);
+    border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -287,6 +288,9 @@ textarea {
 
 #editor {
     border-right: 2px dashed var(--afont-color);
+}
+#getm,#viewer{
+    -webkit-overflow-scrolling: touch;
 }
 
 .markdown {
