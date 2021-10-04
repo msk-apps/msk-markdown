@@ -106,7 +106,7 @@ header {
     flex-grow: 1;
 }
 
-.tools button:hover{
+.tools button:hover {
     background-color: var(--afont-color);
     border-radius: 5px;
     color: var(--bg-color);
