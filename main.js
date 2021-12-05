@@ -89,7 +89,7 @@ const Preview = {
         this.mjRunning = false;
         text = this.buffer.innerHTML;
         text = this.PartialDescape(text);
-        this.buffer.innerHTML = DOMPurify.sanitize(marked(text));   // Sanitize output HTML
+        this.buffer.innerHTML = DOMPurify.sanitize(marked.parse(text));   // Sanitize output HTML
         document.querySelectorAll("code").forEach((block) => {
             hljs.highlightBlock(block);
         });
@@ -120,8 +120,8 @@ const Preview = {
         keyCode
     }) {
         if (keyCode < 16 || keyCode > 47) {
-            this.preview.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
-            this.buffer.innerHTML = `<p>${marked(this.textarea.value)}</p>`;
+            this.preview.innerHTML = `<p>${marked.parse(this.textarea.value)}</p>`;
+            this.buffer.innerHTML = `<p>${marked.parse(this.textarea.value)}</p>`;
         }
         this.Update();
     },
