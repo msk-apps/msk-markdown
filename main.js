@@ -262,8 +262,13 @@ const apply = (e) => {
         let startPos = myField.selectionStart;
         let endPos = myField.selectionEnd;
         var selectionText = myField.value.substring(startPos, endPos);
-        if (myValueBefore && myValueAfter && selectionText.startsWith(myValueBefore) && selectionText.endsWith(myValueAfter)) {
-            myField.value = myField.value.substring(0, startPos) + selectionText.slice(myValueBefore.length, -myValueAfter.length) + myField.value.substring(endPos, myField.value.length);
+        if (myValueBefore && selectionText.startsWith(myValueBefore) && selectionText.endsWith(myValueAfter)) {
+            if (myValueAfter.length == 0) {
+                selectionText = selectionText.slice(myValueBefore.length);
+            } else {
+                selectionText = selectionText.slice(myValueBefore.length, -myValueAfter.length);
+            }
+            myField.value = myField.value.substring(0, startPos) + selectionText + myField.value.substring(endPos, myField.value.length);
             myField.selectionStart = startPos;
             myField.selectionEnd = endPos - myValueBefore.length - myValueAfter.length;
             myField.focus();
