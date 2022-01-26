@@ -114,6 +114,14 @@
                     </form>
                 </div>
             </div>
+            <div>
+                <span class="sample" id="AddSampleTexts" onclick="AddSample()">Sample</span>
+                <span class="clear" id="ClearText" onclick="clearTextArea()">Clear</span>
+                <span>
+                    <label class="file" for="file">Open<input id="file" type="file" accept=".txt,.text,.md,.markdown,.markdn,.mdown,.htm,.html,.svg" onchange="openFile(event)" /></label>
+                </span>
+                <span class="trigger" id="ToggleSaveFile">Save</span>
+            </div>
             <div class="modal" id="About">
                 <div class="modal-content" id="AboutContent">
                     <span class="close-button" id="CloseAbout">✖</span>

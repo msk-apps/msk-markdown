@@ -81,7 +81,6 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -97,7 +96,6 @@ header {
     font-weight: 700;
     align-items: center;
 }
-
 .tools {
     display: flex;
     overflow-x: auto;
@@ -117,9 +115,7 @@ header {
     padding: 0 8px;
 }
 
-.file,
-button,
-.clear {
+.file,button,.clear,.sample {
     padding: 8px 16px;
     background-color: transparent;
     color: var(--afont-color);
