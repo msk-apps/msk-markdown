@@ -348,7 +348,11 @@ CloseAbout.addEventListener("click", OpenCloseAbout);
 ToggleSettings.addEventListener("click", OpenCloseSettings);
 CloseSettings.addEventListener("click", OpenCloseSettings);
 
+
 function DownloadFile() {
+    // make the button is disabled until there's a text
+    const button = document.getElementById('button');
+    
     let DownloadName = document.getElementById("SaveFileInput").value;
     let text = document.getElementById("getm").value;
     text = text.replace(/\n/g, "\r\n");
@@ -364,11 +368,27 @@ function DownloadFile() {
     anchor.click();
     document.body.removeChild(anchor);
     OpenCloseSaveFile();
+    //clear the textbox after saving
+    document.getElementById("SaveFileInput").value='';
     document.getElementById("DownloadFileForm").reset;
+    
 }
 
 /*Clears the TextArea along with the associated markdown*/
 const clearTextArea = () => {
     document.getElementById("getm").value = '';
     Preview.ClearPreview();
-}; 
+};
+
+// save the text in local storage
+let scratchpad = document.querySelector("#getm")
+
+scratchpad.value = localStorage.getItem("notes")
+
+let cancel
+scratchpad.addEventListener("keyup", event => {
+  if (cancel) clearTimeout(cancel)
+  cancel = setTimeout(() => {
+    localStorage.setItem("notes", event.target.value)
+  }, 1000)
+})
