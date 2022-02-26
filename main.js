@@ -349,29 +349,44 @@ ToggleSettings.addEventListener("click", OpenCloseSettings);
 CloseSettings.addEventListener("click", OpenCloseSettings);
 
 
+let errorText=document.getElementById("error");
+let button=document.getElementById('btn');
+let textbox=document.querySelector('#SaveFileInput');
+
 function DownloadFile() {
     // make the button is disabled until there's a text
-    const button = document.getElementById('button');
-    
     let DownloadName = document.getElementById("SaveFileInput").value;
-    let text = document.getElementById("getm").value;
-    text = text.replace(/\n/g, "\r\n");
-    let blob = new Blob([text], {
-        type: "text/plain"
+    //error handling with css
+    if(DownloadName===''){
+        errorText.innerHTML="Set name for your file";
+        textbox.style.borderColor='rgb(207, 54, 54)';
+    }
+    else{
+        let text = document.getElementById("getm").value;
+        text = text.replace(/\n/g, "\r\n");
+        let blob = new Blob([text], {
+            type: "text/plain"
+        });
+        let anchor = document.createElement("a");
+        anchor.download = DownloadName + ".md";
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.target = "_blank";
+        anchor.style.display = "none";
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+        OpenCloseSaveFile();
+        //clear the textbox after saving
+        document.getElementById("SaveFileInput").value='';
+        document.getElementById("DownloadFileForm").reset;
+    }
+    textbox.addEventListener('change', validait=>{
+        errorText.innerHTML='';
+        textbox.style.borderColor='rgb(201, 207, 212)';
+        
+        
     });
-    let anchor = document.createElement("a");
-    anchor.download = DownloadName + ".md";
-    anchor.href = window.URL.createObjectURL(blob);
-    anchor.target = "_blank";
-    anchor.style.display = "none";
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    OpenCloseSaveFile();
-    //clear the textbox after saving
-    document.getElementById("SaveFileInput").value='';
-    document.getElementById("DownloadFileForm").reset;
-    
+
 }
 
 /*Clears the TextArea along with the associated markdown*/
