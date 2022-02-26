@@ -5,6 +5,8 @@
     --dbg-color: rgba(0, 0, 0, 0.1);
     --dbgh-color: rgba(0, 0, 0, 0.2);
     --dbga-color: rgba(0, 0, 0, 0.3);
+    --error:#c71717;
+    --def: #ced4da;
 }
 
 [data-theme="dark"] {
@@ -419,7 +421,8 @@ img {
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 2px solid #ced4da;
+    border: 2px solid ;
+    border-color: var(--def);
     border-radius: 0.375rem;
     box-shadow: none;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
