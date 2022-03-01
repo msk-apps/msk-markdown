@@ -181,6 +181,10 @@ button[disabled] {
     transform: translate(-50%, -50%);
 }
 
+#SettingsContent h3 {
+      width: 14.5em;
+}
+
 .close-button {
     position: fixed;
     top: 13px;
