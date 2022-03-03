@@ -5,6 +5,7 @@
     --dbg-color: rgba(0, 0, 0, 0.1);
     --dbgh-color: rgba(0, 0, 0, 0.2);
     --dbga-color: rgba(0, 0, 0, 0.3);
+    
 }
 
 [data-theme="dark"] {
@@ -65,7 +66,13 @@ a {
     align-items: center;
     justify-content: center;
 }
-
+#error{
+    color: rgb(207, 54, 54);
+    padding: 0px;
+    font-size: 0.8em;
+    position:absolute;
+    transition: all 0.2s;
+}
 body {
     margin: 0;
     width: 100%;
@@ -423,7 +430,8 @@ img {
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 2px solid #ced4da;
+    border: 2px solid ;
+    border-color: #c9cfd4;
     border-radius: 0.375rem;
     box-shadow: none;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
