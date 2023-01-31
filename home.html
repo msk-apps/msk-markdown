@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="./main.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/styles/dracula.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked@4.0.6/marked.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
@@ -49,22 +50,22 @@
                 <div class="tools">
                     <div>
                         <a>MSK Markdown</a>
-                        <button onclick="apply('bold')" title="Bold">B</button>
-                        <button onclick="apply('italic')" title="Italic"><i>I</i></button>
-                        <button onclick="apply('strike')" title="Strikethrough"><strike>S</strike></button>
-                        <button onclick="apply('h1')" title="Header 1">H1</button>
-                        <button onclick="apply('h2')" title="Header 2">H2</button>
-                        <button onclick="apply('h3')" title="Header 3">H3</button>
-                        <button onclick="apply('ul')" title="Unordered list">●</button>
-                        <button onclick="apply('ol')" title="Ordered list">1.</button>
-                        <button onclick="apply('check')" title="Check list">✔</button>
-                        <button onclick="apply('bq')" title="Blockquote">””</button>
-                        <button onclick="apply('ic')" title="Inline code">I&lt;></button>
-                        <button onclick="apply('bc')" title="Block code">&lt;>B</button>
-                        <button onclick="apply('link')" title="Link">A</button>
-                        <button onclick="apply('image')" title="Image">I</button>
-                        <button onclick="apply('hr')" title="Horizontal rule">——</button>
-                        <button onclick="apply('table')" title="Table">⚏</button>
+                        <button onclick="apply('bold')" title="Bold"><i class="bi bi-type-bold"></i></button>
+                        <button onclick="apply('italic')" title="Italic"><i class="bi bi-type-italic"></i></button>
+                        <button onclick="apply('strike')" title="Strikethrough"><i class="bi bi-type-strikethrough"></i></button>
+                        <button onclick="apply('h1')" title="Header 1"><i class="bi bi-type-h1"></i></button>
+                        <button onclick="apply('h2')" title="Header 2"><i class="bi bi-type-h2"></i></button>
+                        <button onclick="apply('h3')" title="Header 3"><i class="bi bi-type-h3"></i></button>
+                        <button onclick="apply('ul')" title="Unordered list"><i class="bi bi-list-ul"></i></button>
+                        <button onclick="apply('ol')" title="Ordered list"><i class="bi bi-list-ol"></i></button>
+                        <button onclick="apply('check')" title="Check list"><i class="bi bi-check-lg"></i></button>
+                        <button onclick="apply('bq')" title="Blockquote"><i class="bi bi-quote"></i></button>
+                        <button onclick="apply('ic')" title="Inline code"><i class="bi bi-code"></i></button>
+                        <button onclick="apply('bc')" title="Block code"><i class="bi bi-braces"></i></button>
+                        <button onclick="apply('link')" title="Link"><i class="bi bi-link-45deg"></i></button>
+                        <button onclick="apply('image')" title="Image"><i class="bi bi-image"></i></button>
+                        <button onclick="apply('hr')" title="Horizontal rule"><i class="bi bi-hr"></i></button>
+                        <button onclick="apply('table')" title="Table"><i class="bi bi-table"></i></button>
                     </div>
                     <div>
                         <span class="clear" id="ClearText" onclick="clearTextArea()">Clear</span>
@@ -89,21 +90,21 @@
                         <span id="colno"></span>
                     </div>
                     <div class="preview">
-                        <button onclick="slide('nill')" title="Hide editor">←</button>
-                        <button onclick="slide('half')" title="Side by side">●</button>
-                        <button onclick="slide('full')" title="Hide viewer">→</button>
+                        <button onclick="slide('nill')" title="Hide editor"><i class="bi bi-arrow-left"></i></button>
+                        <button onclick="slide('half')" title="Side by side"><i class="bi bi-align-middle"></i></button>
+                        <button onclick="slide('full')" title="Hide viewer"><i class="bi bi-arrow-right"></i></button>
                     </div>
                     <div style="flex: 1 1 0; text-align: right;">
                         <span id="charcount"></span>
                         <span id="wordcount"></span>
-                        <span class="trigger" id="ToggleSettings">Settings</span>
-                        <span class="trigger" id="ToggleAbout">About</span>
+                        <span class="trigger" id="ToggleSettings" title="Settings"><i class="bi bi-sliders"></i> Settings</span>
+                        <span class="trigger" id="ToggleAbout" title="About"><i class="bi bi-info-circle"></i> About</span>
                     </div>
                 </div>
             </footer>
             <div class="modal" id="SaveFileModal">
                 <div class="modal-content" id="SaveFileContent">
-                    <span class="close-button" id="CloseSaveFile">✖</span>
+                    <span class="close-button" id="CloseSaveFile"><i class="bi bi-x-lg"></i></span>
                     
                     <h2>Save File</h2>
                     <p id="error"></p>
@@ -111,14 +112,14 @@
                         <center>
                             <a></a>
                             <input type="text" placeholder="File name" class="Input" id="SaveFileInput" /><br />
-                            <button type="button" id="btn" onclick="DownloadFile()">Download</button>
+                            <button type="button" id="btn" onclick="DownloadFile()"><i class="bi bi-download"></i> Download</button>
                         </center>
                     </form>
                 </div>
             </div>
             <div class="modal" id="About">
                 <div class="modal-content" id="AboutContent">
-                    <span class="close-button" id="CloseAbout">✖</span>
+                    <span class="close-button" id="CloseAbout"><i class="bi bi-x-lg"></i></span>
                     <h1>MSK Markdown</h1>
                     <h3>
                         Preview, edit and save markdown. Light Editor and Viewer.<br />
@@ -128,7 +129,7 @@
             </div>
             <div class="modal" id="Settings">
                 <div class="modal-content" id="SettingsContent">
-                    <span class="close-button" id="CloseSettings">✖</span>
+                    <span class="close-button" id="CloseSettings"><i class="bi bi-x-lg"></i></span>
                     <h2>Settings</h2>
                     <h3>Theme (Dark & Light)</h3>
                     <label class="theme-switch" for="checkbox" title="Theme">
