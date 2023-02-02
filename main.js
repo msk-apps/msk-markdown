@@ -407,3 +407,16 @@ scratchpad.addEventListener("keyup", event => {
     localStorage.setItem("notes", event.target.value)
   }, 1000)
 })
+
+/* Tab key to indent content with space */
+document.getElementById("getm").addEventListener("keydown",function(e){
+    if(e.key=="Tab"){
+        e.preventDefault();
+        let start=this.selectionStart;
+        let end=this.selectionEnd;
+
+        this.value=this.value.substring(0,start)+"\t"+this.value.substring(end);
+        this.selectionStart=this.selectionEnd=start+1;
+        console.log("Tab Key was clicked and space is apended");
+    }
+});
